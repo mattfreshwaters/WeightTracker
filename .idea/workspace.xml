@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3fc5c6d8-10c9-4e6b-8ddf-fc0c27ed29d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/controllers/WeightTrackerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/daos/InMemWeightDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/daos/PostgresWeightDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/daos/WeightTrackerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/services/WeightTrackerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/test/java/WeightTrackerSB/daos/InMemDaoWeightTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/test/java/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Weight-Tracker-SB/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Weight-Tracker-SB/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/Models/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/models/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/Models/Goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/models/Goal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/java/WeightTrackerSB/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Weight-Tracker-SB/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight-tracker/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/weight-tracker/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight-tracker/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/weight-tracker/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight-tracker/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/weight-tracker/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight-tracker/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/weight-tracker/src/app/app.module.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kWnKb5EzZsUc2bMMpgTSuhvIYb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3fc5c6d8-10c9-4e6b-8ddf-fc0c27ed29d8" name="Default Changelist" comment="" />
+      <created>1605825151403</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605825151403</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,4 +1,4 @@
-package WeightTrackerSB.Models;
+package WeightTrackerSB.models;
 
 
 import java.math.BigDecimal;
