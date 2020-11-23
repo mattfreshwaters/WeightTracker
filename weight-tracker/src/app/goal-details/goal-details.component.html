@@ -1,0 +1,10 @@
+<div *ngIf="goal">
+    <h2>{{goal.userId}} Details</h2>
+    <div><span>id: </span>{{goal.goalWeight}}</div>
+    <div>
+      <label>weight:
+        <input [(ngModel)]="goal.goalWeight" placeholder="weight"/>
+      </label>
+    </div>
+  </div>
+

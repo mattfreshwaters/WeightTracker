@@ -12,7 +12,6 @@ public class Goal {
     public Goal(){
 
     }
-
     public Goal(Goal that) {
         this.userId = that.userId;
         this.goalWeight = that.goalWeight;

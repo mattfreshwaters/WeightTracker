@@ -1,0 +1,11 @@
+<h2>User entries:</h2>
+
+<ul class ="entries">
+    <li *ngFor="let entry of entries"
+    [class.selected]="entry === selectedEntry"
+    (click)="onSelect(entry)">
+        <span class = "badge">User id: {{entry.userId}} </span> {{entry.weight}}, {{entry.date}}
+    </li>
+</ul>
+
+<app-entry-details [entry] = "selectedEntry"></app-entry-details>
