@@ -1,1 +1,11 @@
-<p>goals-dashboard works!</p>
+<h3>Goals: </h3>
+<div class = "grid grid-pad">
+    <a *ngFor="let goal of goals"
+    routerLink="/goalDetail/{{goal.goalId}}">
+        <div class = "module entry">
+            <h4>Goal weight: {{goal.goalWeight}}</h4>
+            <h4>Goal date: {{goal.goalDate}}</h4>
+        </div>
+    </a>
+</div>
+
