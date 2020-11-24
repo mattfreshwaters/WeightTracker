@@ -1,5 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Entry } from '../entry';
+import { EntryService } from '../entry.service';
 
 @Component({
   selector: 'app-entry-details',
@@ -8,11 +12,26 @@ import { Entry } from '../entry';
 })
 export class EntryDetailsComponent implements OnInit {
 
-  @Input() entry: Entry;
+  entry: Entry;
 
-  constructor() { }
+
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private service: EntryService
+  ) { }
 
   ngOnInit(): void {
+    this.getEntry();
+  }
+
+  getEntry(): void{
+    const goalId = +this.route.snapshot.paramMap.get('id');
+    this.service.getEntry(goalId).subscribe(entry => this.entry = entry);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

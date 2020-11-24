@@ -1,13 +1,8 @@
 <h2>My Goals</h2>
 <ul class="goals">
-  <li *ngFor="let goal of goals"
-    [class.selected]="goal === selectedGoal"
-    (click)="onSelect(goal)">
+  <li *ngFor="let goal of goals">
+    <a routerLink = "goalDetail/{{goal.goalId}}">
     <span class="badge">UserId: {{goal.userId}}</span> GoalWeight: {{goal.goalWeight}}, GoalDate: {{goal.goalDate}}
+    </a>
   </li>
 </ul>
-
-<app-goal-details [goal]="selectedGoal"></app-goal-details>
-
-
-

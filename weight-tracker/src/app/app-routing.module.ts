@@ -13,7 +13,7 @@ const routes: Routes =[
   {path: 'entries', component: EntriesComponent},
   {path: 'goals', component: GoalsComponent},
   {path: 'entriesDashboard', component: EntriesDashboardComponent},
-  {path: 'entryDetail/:id ', component: EntryDetailsComponent},
+  {path: 'entryDetail/:id', component: EntryDetailsComponent},
   {path: 'goalsDashBoard', component: GoalsDashboardComponent},
   {path: 'goalDetail/:id', component: GoalDetailsComponent},
   {path: '', redirectTo: '  /entriesDashBoard', pathMatch: 'full'}

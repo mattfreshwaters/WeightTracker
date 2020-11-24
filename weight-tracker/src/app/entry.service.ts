@@ -17,4 +17,10 @@ export class EntryService {
     this.messageService.add('WeightTracker: fetched entries');
     return of(ENTRIES);
   }
+
+  getEntry(id: number): Observable<Entry>{
+    this.messageService.add(`Entry Service: fetched goal id =${id}`);
+    return of(ENTRIES.find(entry => entry.entryId === id));
+  }
+
 }

@@ -14,7 +14,14 @@ export class GoalService {
   constructor(private messageService: MessageService) { }
 
   getGoals(): Observable<Goal[]>{
-    this.messageService.add('WeightTracker: fetched goals');
+    this.messageService.add('Goal Service: fetched all goals');
     return of(GOALS);
   }
+
+  getGoal(id: number): Observable<Goal>{
+    this.messageService.add(`Goal Service: fetched goal id=${id}`);
+    return of(GOALS.find(goal => goal.goalId === id));                 // this line not working
+  }
+
+
 }

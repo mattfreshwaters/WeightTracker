@@ -1,9 +1,13 @@
 <div *ngIf="entry">
     <h2>{{entry.entryId}}: Entry Details</h2>
-    <div><span>id: </span>{{entry.userId}}</div>
+    <div><span>Entry: </span>{{entry.entryId}}</div>
+    <div><span>Weight: </span>{{entry.weight}}</div>
+    <div><span>Date: </span>{{entry.date}}</div>
+
     <div>
         <label>weight:
             <input [(ngModel)]="entry.weight" placeholder ="weight"/>
         </label>
     </div>
+    <button (click)="goBack()">go back</button>
 </div>

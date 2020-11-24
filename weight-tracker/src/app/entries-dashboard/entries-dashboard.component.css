@@ -17,10 +17,10 @@
     margin: 0;
   }
   .module {
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     color: #eee;
-    max-height: 120px;
+    height: auto;
     min-width: 120px;
     background-color: #3f525c;
     border-radius: 2px;
@@ -34,9 +34,6 @@
   }
   .grid-pad {
     padding: 10px 0;
-  }
-  .grid-pad > [class*='col-']:last-of-type {
-    padding-right: 20px;
   }
   @media (max-width: 600px) {
     .module {

@@ -14,13 +14,13 @@ a {
     position: relative;
   }
   .grid {
-    margin: 0;
+    margin: auto;
   }
   .module {
-    padding: 20px;
+    padding: 2px;
     text-align: center;
     color: #eee;
-    max-height: 120px;
+    height: auto;
     min-width: 120px;
     background-color: #3f525c;
     border-radius: 2px;

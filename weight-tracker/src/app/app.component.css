@@ -43,3 +43,7 @@ h1 {
   nav a.active {
     color: #039be5;
   }
+
+  a{
+    padding: 10px;
+  }

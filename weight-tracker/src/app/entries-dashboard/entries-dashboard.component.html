@@ -1,9 +1,12 @@
 <h3>Entries</h3>
 <div class = "grid grid-pad">
-    <a *ngFor="let entry of entries">
+    <a *ngFor="let entry of entries"
+    routerLink ="/entryDetail/{{entry.entryId}}">
         <div class = "module entry">
+            <h4>Entry id: {{entry.entryId}}</h4>
             <h4>Weight: {{entry.weight}}</h4>
             <h4>Date: {{entry.date}}</h4>
         </div>
     </a>
 </div>
+
