@@ -1,8 +1,10 @@
 <h1>{{title}}</h1>
 <nav>
-    <a routerLink="/entriesDashboard">Entries Dashboard</a>
-    <a routerLink="/users">Users</a>
-    <a routerLink="/goalsDashBoard">Goals Dashboard</a>
+    <a *ngIf="tokenService.getUser()!=null"  routerLink="/entriesDashboard">Entries Dashboard</a>
+    <a *ngIf="tokenService.getUser()!=null" routerLink="/users">Users</a>
+    <a *ngIf="tokenService.getUser()!=null" routerLink="/goalsDashBoard">Goals Dashboard</a>
+    <a *ngIf="tokenService.getUser()!=null" routerLink="/graphEntries">Graph Entries</a> 
+    <button *ngIf = "tokenService.getUser()" (click) = "onLogOut()">Log Out {{tokenService.getUser().userName}}</button>
   </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

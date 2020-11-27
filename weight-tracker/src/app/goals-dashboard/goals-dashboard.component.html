@@ -3,10 +3,13 @@
     <a *ngFor="let goal of goals"
     routerLink="/goalDetail/{{goal.goalId}}">
         <div class = "module entry">
+            <h4>Goal id: {{goal.goalId}}</h4>
             <h4>Goal weight: {{goal.goalWeight}}</h4>
             <h4>Goal date: {{goal.goalDate}}</h4>
-            <h4>Goal id: {{goal.goalId}}</h4>
         </div>
     </a>
 </div>
 
+
+
+<!--<a routerLink = "/graphEntries">Graph</a>-->

@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { EntriesComponent } from './entries/entries.component';
 import { GoalsComponent } from './goals/goals.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 import { FormsModule } from '@angular/forms';
 import { EntryDetailsComponent } from './entry-details/entry-details.component';
@@ -13,6 +15,10 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EntriesDashboardComponent } from './entries-dashboard/entries-dashboard.component';
 import { GoalsDashboardComponent } from './goals-dashboard/goals-dashboard.component';
+import { GraphComponent } from './graph/graph.component';
+import { SigninComponent } from './signin/signin.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthInterceptor } from './authInterceptor';
 
 
 
@@ -26,14 +32,22 @@ import { GoalsDashboardComponent } from './goals-dashboard/goals-dashboard.compo
     GoalDetailsComponent,
     MessagesComponent,
     EntriesDashboardComponent,
-    GoalsDashboardComponent
+    GoalsDashboardComponent,
+    GraphComponent,
+    SigninComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,5 @@
+<form *ngIf = "!isLoggedIn" name = "form" (ngSubmit) = "onSubmit()">
+    <label>Username: </label><input type="text" name="username" [(ngModel)]="creds.username">
+    <label>Password: </label><input type="password" name="password" [(ngModel)]="creds.password">
+    <button>Log In</button>
+</form>

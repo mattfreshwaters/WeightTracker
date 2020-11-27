@@ -7,6 +7,8 @@ import { EntriesDashboardComponent } from './entries-dashboard/entries-dashboard
 import { GoalsDashboardComponent } from './goals-dashboard/goals-dashboard.component';
 import { EntryDetailsComponent } from './entry-details/entry-details.component';
 import { GoalDetailsComponent } from './goal-details/goal-details.component';
+import { GraphComponent } from './graph/graph.component';
+import { SigninComponent } from './signin/signin.component';
 
 const routes: Routes =[
   {path: 'users', component: UsersComponent},
@@ -16,7 +18,9 @@ const routes: Routes =[
   {path: 'entryDetail/:id', component: EntryDetailsComponent},
   {path: 'goalsDashBoard', component: GoalsDashboardComponent},
   {path: 'goalDetail/:id', component: GoalDetailsComponent},
-  {path: '', redirectTo: '  /entriesDashBoard', pathMatch: 'full'}
+  {path: 'graphEntries', component: GraphComponent},
+  {path: 'login', component: SigninComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({

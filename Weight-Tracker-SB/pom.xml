@@ -9,19 +9,39 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.talentpath</groupId>
-	<artifactId>spring-heroes</artifactId>
+	<artifactId>WeightTrackerREST</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-heroes</name>
-	<description>Demo project for Spring Boot</description>
+	<name>WeightTrackerREST</name>
+	<description>Backend for WeightTracker</description>
 
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
+		<!-- "new" dependencies	below -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.0.Final</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+
+		<!-- "new" dependencies	above -->
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

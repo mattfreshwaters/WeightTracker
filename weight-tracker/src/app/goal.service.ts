@@ -3,6 +3,7 @@ import { Goal } from './goal';
 import { GOALS } from './mock-goals';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -11,16 +12,19 @@ import { MessageService } from './message.service';
 })
 export class GoalService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(
+    private messageService: MessageService,
+    private client : HttpClient
+    ) { }
 
   getGoals(): Observable<Goal[]>{
     this.messageService.add('Goal Service: fetched all goals');
-    return of(GOALS);
+    return this.client.get<Goal[]>("http://localhost:8080/api/goalData/");
   }
 
   getGoal(id: number): Observable<Goal>{
     this.messageService.add(`Goal Service: fetched goal id=${id}`);
-    return of(GOALS.find(goal => goal.goalId === id));                 // this line not working
+    return this.client.get<Goal>(`http://localhost:8080/api/goalData/${id}`);
   }
 
 

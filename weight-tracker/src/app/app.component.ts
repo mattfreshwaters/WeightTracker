@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenStorageService } from './token-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Weight Tracker';
+
+  constructor(
+    public tokenService: TokenStorageService,
+    private router: Router){
+    
+  }
+
+  onLogOut() : void{
+    this.tokenService.signOut();
+    window.location.reload();
+  }
 }
