@@ -34,15 +34,26 @@ export type ChartOptions = {
 })
 export class GraphComponent {
 
+  @ViewChild("theChart") scatterChart: ApexChart;
+
+
+  ngOnInit(): void {
+    this.getEntries();
+    this.getGoals();
+    this.setWidth();
+  }
+
   entries: Entry[] = [];
   getEntries(): void{
     this.eService.getEntries()
     .subscribe(entries => {
       this.entries = entries;
-      //this.chartOptions.series = entries.map(e => e.weight )        // scatter chart 
-      //this.chartOptions.series = entries.map();
-
-    });
+      this.chartOptions.series[0].data = entries.map( e => {return {
+        x: new Date(e.date).getTime(),
+        y: e.weight
+      };});
+      
+    })
   }
 
   goals: Goal[] = [];
@@ -50,11 +61,20 @@ export class GraphComponent {
     this.gService.getGoals()
     .subscribe(goals =>{
       this.goals = goals;
+      this.chartOptions.series[1].data = goals.map( g => { return {
+        x: new Date(g.goalDate).getTime(),
+        y: g.goalWeight
+      };});
     })
   }
 
+  graphWidth = '100%';
+  setWidth(): void{
+    this.graphWidth = '100%';
+  }
 
-  @ViewChild("chart") chart: ChartComponent;
+
+  @ViewChild("chart") chart: ApexChart;
   public chartOptions: Partial<ChartOptions>;
 
   constructor(
@@ -67,66 +87,13 @@ export class GraphComponent {
       series: [
         {
           name: "Weight",
-          data: [
-            {x: new Date("11 Feb 2018 GMT"), y: 2},
-            {x: new Date ("15 Feb 2018 GMT"), y: 10},
-            {x: new Date("11 Feb 2019 GMT"), y: 15},
-            {x: new Date("12 June 2018 GMT"), y: 20},
-            
-          ]
-          // data: this.generateDayWiseTimeSeries(
-          //   new Date("11 Feb 2017 GMT").getTime(),
-          //   20,       // this is count
-          //   {         // this is yrange
-          //     min: 20,
-          //     max: 60
-          //   }
-          // )  
-        }/*,
-        {
-          name: "TEAM 2",
-          data: this.generateDayWiseTimeSeries(
-            new Date("11 Feb 2017 GMT").getTime(),
-            20,
-            {
-              min: 10,
-              max: 60
-            }
-          )
+          data: []
+          
         },
         {
-          name: "TEAM 3",
-          data: this.generateDayWiseTimeSeries(
-            new Date("11 Feb 2017 GMT").getTime(),
-            30,
-            {
-              min: 10,
-              max: 60
-            }
-          )
-        },
-        {
-          name: "TEAM 4",
-          data: this.generateDayWiseTimeSeries(
-            new Date("11 Feb 2017 GMT").getTime(),
-            10,
-            {
-              min: 10,
-              max: 60
-            }
-          )
-        },
-        {
-          name: "TEAM 5",
-          data: this.generateDayWiseTimeSeries(
-            new Date("11 Feb 2017 GMT").getTime(),
-            30,
-            {
-              min: 10,
-              max: 60
-            }
-          )
-        }*/
+          name: "Goal Weight",
+          data: []
+        }
       ],
       chart: {
         height: 350,
@@ -157,19 +124,9 @@ export class GraphComponent {
         max: 70
       }
     };
+
+    
   }
 
-  public generateDayWiseTimeSeries(baseval, count, yrange) {
-    var i = 0;
-    var series = [];
-    while (i < count) {
-      var y =
-        Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-
-      series.push([baseval, y]);
-      baseval += 86400000;
-      i++;
-    }
-    return series;
-  }
 }
+

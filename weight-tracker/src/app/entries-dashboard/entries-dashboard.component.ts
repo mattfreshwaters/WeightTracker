@@ -11,7 +11,9 @@ export class EntriesDashboardComponent implements OnInit {
 
   entries: Entry[] = [];
 
-  constructor(private entryService: EntryService) { }
+  constructor(
+    private entryService: EntryService
+    ) { }
 
   ngOnInit(): void {
     this.getEntries();
@@ -21,5 +23,14 @@ export class EntriesDashboardComponent implements OnInit {
     this.entryService.getEntries()
     .subscribe(entries => this.entries = entries);
   }
+
+  // add(weight: number, date: Date): void {
+
+  //   if (!weight || !date) { return; }
+  //   this.entryService.addEntry({date}, {weight})
+  //     .subscribe(entry => {
+  //       this.entries.push(entry);
+  //     });
+  // }
 
 }

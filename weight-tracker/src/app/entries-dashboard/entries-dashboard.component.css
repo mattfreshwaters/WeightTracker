@@ -28,6 +28,8 @@ h4 {
   border-radius: 2px;
   width: 25%;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .module:hover {
   background-color: #eee;
@@ -51,4 +53,82 @@ h4 {
   .module {
     min-width: 60px;
   }
+}
+
+.addLabel{
+  text-align: center;
+  padding: 5px;
+  margin-left: 5%;
+}
+
+.addEntryP{
+  color: #749EB2;
+  text-decoration: underline;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 19%; 
+  font-size: 20px ;
+}
+.entries {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 20em;
+}
+
+.entries li {
+  position: relative;
+  cursor: pointer;
+  background-color: rgb(201, 201, 201);
+  margin: .5em;
+  padding: .3em 0;
+  height: 4.0em;
+  border-radius: 8px;
+}
+.entries li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.entries a {
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  width: 275px;
+  margin-right: 20%;
+}
+
+.entries a:hover {
+  color: #607D8B;
+}
+
+.entries .badge {
+  text-align: center;
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #405061;
+  line-height: 1em;
+  position: relative;
+  left: 4px;
+  height: 100%;
+  width: 70%;
+  min-width: 16px;
+  border-radius: 4px 0 0 4px;
+}
+
+button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+}
+
+button:hover {
+  background-color: #cfd8dc;
 }

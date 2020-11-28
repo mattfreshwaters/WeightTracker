@@ -1,5 +1,24 @@
-<h3>Entries</h3>
-<div class = "grid grid-pad">
+<h3>Your Entries Dashboard</h3>
+<div class = "add">
+    <p class="addEntryP">Add an entry</p>
+    <label class ="addLabel">Weight:
+        <input #entryWeight />
+    </label>
+    <label class ="addLabel">Date:
+        <input #entryDate />
+    </label>
+</div>
+
+<ul class="entries">
+    <li *ngFor="let entry of entries">
+      <a routerLink="/entryDetail/{{entry.entryId}}">
+        <span class="badge">Weight: {{entry.weight}} <br>Date: {{entry.date}}</span> 
+      </a>
+      <button class="delete" title="delete entry" >x</button>
+    </li>
+  </ul>
+
+<div class = "grid grid-pad">   
     <a *ngFor="let entry of entries"
     routerLink ="/entryDetail/{{entry.entryId}}">
         <div class = "module entry">
@@ -10,3 +29,37 @@
     </a>
 </div>
 
+
+
+
+<!--
+WORKING:
+    <div class = "grid grid-pad">
+    <a *ngFor="let entry of entries"
+    routerLink ="/entryDetail/{{entry.entryId}}">
+        <div class = "module entry">
+            <h4>Entry id: {{entry.entryId}}</h4>
+            <h4>Weight: {{entry.weight}}</h4>
+            <h4>Date: {{entry.date}}</h4>
+        </div>
+    </a>
+</div>
+
+
+     <button class="delete" title="delete hero"
+  (click)="delete(hero)">x</button>
+
+
+
+<div>
+    <label>Weight:
+      <input #entryWeight />
+    </label>
+    <label>Date:
+        <input #entryDate>
+    </label>
+    <button (click)="add(entryWeight.value, entryWeight.date); entryWeight.value='' entryDate.value=''">
+      Add Entry
+    </button>
+  </div>
+-->
