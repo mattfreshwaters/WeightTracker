@@ -19,7 +19,7 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private authService: AuthService, 
-    private tokenService: TokenStorageService,
+    public tokenService: TokenStorageService,
     private router: Router
     ) { }
 

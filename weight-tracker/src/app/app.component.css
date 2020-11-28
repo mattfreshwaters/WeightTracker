@@ -15,6 +15,7 @@ h1 {
   }
   body {
     margin: 2em;
+    background-color: beige;
   }
   body, input[type="text"], button {
     color: #333;
@@ -26,9 +27,11 @@ h1 {
   }
 
   nav a {
+    margin-left: 5%;
     padding: 5px 10px;
     text-decoration: none;
     margin-top: 10px;
+    margin-bottom: 10px;
     display: inline-block;
     background-color: #eee;
     border-radius: 4px;
@@ -38,7 +41,8 @@ h1 {
   }
   nav a:hover {
     color: #039be5;
-    background-color: #cfd8dc;
+    background-color: lightgreen;
+
   }
   nav a.active {
     color: #039be5;
@@ -46,4 +50,24 @@ h1 {
 
   a{
     padding: 10px;
+  }
+
+  .logOutBtn{
+    color: blue;
+    margin-left: 30%;
+    background-color: #DCDCDC;
+    border: none;
+  }
+
+ .logOutBtn:hover{
+    color: red;
+    background-color: #DCDCDC;
+  }
+
+  .userBanner{
+    background-color: lightskyblue;
+  }
+
+  .routerTag{
+    background-color:  lightgreen;
   }

@@ -9,10 +9,12 @@ a {
 h3 {
   text-align: center;
   margin-bottom: 0;
+  background-color: beige;
 }
 h4 {
   position: relative;
 }
+
 .grid {
   margin: auto;
 }
@@ -34,10 +36,9 @@ h4 {
 }
 .grid-pad {
   padding: 10px 0;
+  background-color: beige;
 }
-.grid-pad > [class*='col-']:last-of-type {
-  padding-right: 20px;
-}
+
 @media (max-width: 600px) {
   .module {
     font-size: 10px;

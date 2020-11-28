@@ -19,12 +19,14 @@ import { GraphComponent } from './graph/graph.component';
 import { SigninComponent } from './signin/signin.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthInterceptor } from './authInterceptor';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    GraphComponent,
     UsersComponent,
     EntriesComponent,
     GoalsComponent,
@@ -33,7 +35,6 @@ import { AuthInterceptor } from './authInterceptor';
     MessagesComponent,
     EntriesDashboardComponent,
     GoalsDashboardComponent,
-    GraphComponent,
     SigninComponent,
     RegisterComponent,
   ],
@@ -41,7 +42,8 @@ import { AuthInterceptor } from './authInterceptor';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgApexchartsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

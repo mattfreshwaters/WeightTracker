@@ -1,10 +1,15 @@
 <h1>{{title}}</h1>
-<nav>
-    <a *ngIf="tokenService.getUser()!=null"  routerLink="/entriesDashboard">Entries Dashboard</a>
-    <a *ngIf="tokenService.getUser()!=null" routerLink="/users">Users</a>
-    <a *ngIf="tokenService.getUser()!=null" routerLink="/goalsDashBoard">Goals Dashboard</a>
-    <a *ngIf="tokenService.getUser()!=null" routerLink="/graphEntries">Graph Entries</a> 
-    <button *ngIf = "tokenService.getUser()" (click) = "onLogOut()">Log Out {{tokenService.getUser().userName}}</button>
+<hr>
+<nav class = "userBanner" >
+    <a class = "routerTag" *ngIf="tokenService.getUser()!=null"  routerLink="/entriesDashboard">Entries Dashboard</a>
+    <!--<a *ngIf="tokenService.getUser()!=null" routerLink="/users">Users</a> -->
+    <a class = "routerTag" *ngIf="tokenService.getUser()!=null" routerLink="/goalsDashBoard">Goals Dashboard</a>
+    <a class = "routerTag" *ngIf="tokenService.getUser()!=null" routerLink="/graphEntries">Graph Data</a> 
+    <button class = "logOutBtn" *ngIf = "tokenService.getUser()" (click) = "onLogOut()">Log Out {{tokenService.getUser().userName}}</button>
   </nav>
+  <hr *ngIf="tokenService.getUser()!=null">
 <router-outlet></router-outlet>
-<app-messages></app-messages>
+
+<!--
+<app-messages *ngIf="tokenService.getUser()!=null"></app-messages>
+-->
