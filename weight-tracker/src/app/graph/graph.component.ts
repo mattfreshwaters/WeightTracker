@@ -47,7 +47,6 @@ export class GraphComponent {
 
   entries: Entry[] = [];
   getEntries(): void{
-    console.log(this.chartOptions.series[0]);
     this.eService.getEntries()
     .subscribe(entries => {
       this.entries = entries;

@@ -13,6 +13,8 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class GoalService {
 
+  private goalURL = "http://localhost:8080/api/goalData/";
+
   httpOptions = { 
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -32,8 +34,12 @@ export class GoalService {
     return this.client.get<Goal>(`http://localhost:8080/api/goalData/${id}`);
   }
 
-  addGoal(goalWeight: number, goalDate: Date){
-    
+
+  addGoal(goal: Goal): Observable<Goal>{
+    return this.client.post<Goal>(this.goalURL, goal, this.httpOptions).pipe(
+      tap( (newGoal: Goal)=> this.log(`added goal with id =${newGoal.goalId}`)),
+      catchError(this.handleError<any>('deleteEntry')),
+    );
   }
 
   deleteGoal(goal: Goal | number): Observable<Goal>{

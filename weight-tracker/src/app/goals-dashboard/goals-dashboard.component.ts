@@ -26,13 +26,25 @@ export class GoalsDashboardComponent implements OnInit {
   }
 
   add(goalWeight: number, goalDate: Date): void{
-    let currentUserId = this.tokenService.getUser().id;
-    if(!goalWeight || !goalDate) {return;}
-    // this.entryService.addEntry({weight, date, currentUserId} as Entry)
-    // .subscribe(entry => {
-    //   this.entries.push(entry);
-    // })
+    let userId = this.tokenService.getUser().id;
+    if(!goalWeight || !goalDate){return ;}
+    this.goalService.addGoal({goalWeight, goalDate, userId} as Goal)
+    .subscribe(goal =>{
+      this.goals.push(goal);
+    })
   }
+
+  /*
+add(weight: number, date: Date): void{
+    let userId = this.tokenService.getUser().id;
+    if(!weight || !date) {return;}
+    
+    this.entryService.addEntry({weight, date, userId} as Entry)
+    .subscribe(entry => {
+      this.entries.push(entry);
+    })
+  }
+  */
 
   delete(goal: Goal): void{
     this.goals = this.goals.filter(g => g !== goal);

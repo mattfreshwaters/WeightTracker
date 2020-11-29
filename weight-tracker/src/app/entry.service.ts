@@ -49,13 +49,6 @@ export class EntryService {
       catchError(this.handleError<any>('updateEntry')),
     );
   }
-
-  // addHero(hero: Hero): Observable<Hero> {
-  //   return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-  //     tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
-  //     catchError(this.handleError<Hero>('addHero'))
-  //   );
-  // }
   
   addEntry(entry: Entry): Observable<Entry>{
     return this.client.post<Entry>(this.entryURl, entry, this.httpOptions).pipe(
