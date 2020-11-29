@@ -1,6 +1,6 @@
 export interface Entry{
     userId: number,
-    entryId: number,
+    entryId?: number,
     date: Date,
     weight: number
 }

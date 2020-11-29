@@ -27,12 +27,13 @@ export class EntriesDashboardComponent implements OnInit {
   }
 
   add(weight: number, date: Date): void{
-    let currentUserId = this.tokenService.getUser().id;
+    let userId = this.tokenService.getUser().id;
     if(!weight || !date) {return;}
-    // this.entryService.addEntry({weight, date, currentUserId} as Entry)
-    // .subscribe(entry => {
-    //   this.entries.push(entry);
-    // })
+    
+    this.entryService.addEntry({weight, date, userId} as Entry)
+    .subscribe(entry => {
+      this.entries.push(entry);
+    })
   }
 
   delete(entry: Entry): void{

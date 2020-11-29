@@ -58,7 +58,10 @@ export class EntryService {
   // }
   
   addEntry(entry: Entry): Observable<Entry>{
-    return this.client.post<Entry>(this.entryURl, entry, this.httpOptions);
+    return this.client.post<Entry>(this.entryURl, entry, this.httpOptions).pipe(
+      tap( (newEntry: Entry)=> this.log(`added entry with id =${newEntry.entryId}`)),
+      catchError(this.handleError<any>('deleteEntry')),
+    );
   }
 
   deleteEntry(entry: Entry | number): Observable<Entry>{
