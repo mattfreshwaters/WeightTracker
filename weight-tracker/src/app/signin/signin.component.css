@@ -6,9 +6,29 @@ h1{
 }
 
 .signIn{
+    margin-left: 35%;
+    width: 35%;
+    height: 80;
+    background-color: rgb(170, 170, 233, .4);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.usernameLabel{
+    margin-left: 30%;
+}
+.passwordLabel{
     margin-left: 30%;
 }
 
-.signInLabel{
-    padding: 20px;
+#password{
+    margin-left: 3px;
+}
+
+#logInBtn{
+    margin-top: 3%;
+    margin-left: 46%;
+    color: blue;
+    background-color: rgba(86, 228, 173, 0.4);
+    border-radius: 10px;
 }

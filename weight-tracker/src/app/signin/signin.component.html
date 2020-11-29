@@ -1,7 +1,15 @@
 <h1 *ngIf="tokenService.getUser()==null">Welcome! Please sign in below to access your content</h1>
 <body>
+
+<div id = "signInDiv">
 <form class = "signIn" *ngIf = "!isLoggedIn" name = "form" (ngSubmit) = "onSubmit()">
-    <label>Username: </label><input type="text" name="username" [(ngModel)]="creds.username">
-    <label>Password: </label><input type="password" name="password" [(ngModel)]="creds.password">
-    <button>Log In</button>
-</form></body>
+    <label class = "usernameLabel"><b>Username: </b></label><input id = "username" type="text" name="username" [(ngModel)]="creds.username">
+    <label class = "passwordLabel"><b>Password: </b></label><input id = "password" type="password" name="password" [(ngModel)]="creds.password">
+    <div>
+        <button id = "logInBtn">Log In</button>
+    </div>
+</form>
+</div>
+
+
+</body>
