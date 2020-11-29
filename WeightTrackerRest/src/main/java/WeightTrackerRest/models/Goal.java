@@ -1,8 +1,6 @@
 package WeightTrackerRest.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -11,6 +9,7 @@ import java.time.LocalDate;
 public class Goal {
 
     @Id  // tells hibernate this is involved in the primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer goalId;
 
     private Integer userId;

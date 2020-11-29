@@ -19,27 +19,27 @@ public class GoalController {
 
     @GetMapping("/")
     public List<Goal> getAllGoals(Principal principal){
-        return service.getAllGoals("mfreshy");
+        return service.getAllGoals(principal.getName());
     }
 
     @GetMapping("/{id}")
     public Goal getGoalById(@PathVariable Integer id, Principal principal){
-        return service.getGoalById(id, "mfreshy"/*principal.getName()*/);
+        return service.getGoalById(id, principal.getName());
     }
 
     @PostMapping("/")
     public Goal addGoal(@RequestBody Goal toAdd, Principal principal){
-        return service.addGoal(toAdd, "mfreshy"/*principal.getName()*/);
+        return service.addGoal(toAdd, principal.getName());
     }
 
     @PutMapping("/")
     public Goal editGoal(@RequestBody Goal edited, Principal principal){
-        return service.editGoal(edited, "mfreshy"/*principal.getName()*/);
+        return service.editGoal(edited, principal.getName());
     }
 
     @DeleteMapping("/{id}")
     public void delete (@PathVariable Integer id, Principal principal){
 
-        service.deleteGoal(id, "mfreshy"/*principal.getName()*/);
+        service.deleteGoal(id, principal.getName());
     }
 }

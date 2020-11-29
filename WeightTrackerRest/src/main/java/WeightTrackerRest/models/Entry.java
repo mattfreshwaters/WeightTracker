@@ -9,6 +9,7 @@ import java.time.LocalDate;
 public class Entry {
 
     @Id  // tells hibernate this is involved in the primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer entryId;
 
     private Integer userId;

@@ -54,18 +54,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers(HttpMethod.GET, "/api/goalData/{id}").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/goalData/").permitAll()
                 .antMatchers(HttpMethod.PUT, "/api/goalData/").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/api/goalData/{id}").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/goalData/**").permitAll()
 
                 .antMatchers(HttpMethod.GET, "/api/entryData/").authenticated()
                 .antMatchers(HttpMethod.GET, "/api/entryData/{id}").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/entryData/").permitAll()
                 .antMatchers(HttpMethod.PUT, "/api/entryData/").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/api/entryData/{id}").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/entryData/**").permitAll()
 
                 .antMatchers( HttpMethod.GET, "/api/userdata", "/api/userdata/**").hasRole("ADMIN")
                 .antMatchers( HttpMethod.POST, "/api/userdata" ).hasRole("ADMIN")
                 .antMatchers( HttpMethod.PUT, "/api/userdata" ).hasRole("ADMIN")
-                .antMatchers( HttpMethod.DELETE, "/api/userdata" ).hasRole("ADMIN")
+                .antMatchers( HttpMethod.DELETE, "/api/userdata/**" ).hasRole("ADMIN")
 
 
                 .antMatchers( HttpMethod.POST, "/api/auth/signin").permitAll()
