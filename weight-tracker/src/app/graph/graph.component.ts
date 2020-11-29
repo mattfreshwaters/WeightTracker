@@ -17,6 +17,7 @@ import {
   ApexDataLabels,
   ApexGrid
 } from "ng-apexcharts";
+import { element } from 'protractor';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -36,15 +37,17 @@ export class GraphComponent {
 
   @ViewChild("theChart") scatterChart: ApexChart;
 
-
+  graphWidth;
   ngOnInit(): void {
     this.getEntries();
     this.getGoals();
-    this.setWidth();
+    this.graphWidth = '100%';
+
   }
 
   entries: Entry[] = [];
   getEntries(): void{
+    console.log(this.chartOptions.series[0]);
     this.eService.getEntries()
     .subscribe(entries => {
       this.entries = entries;
@@ -68,9 +71,10 @@ export class GraphComponent {
     })
   }
 
-  graphWidth = '100%';
+  width;
   setWidth(): void{
-    this.graphWidth = '100%';
+    this.width = '100%';
+    document.getElementById("chart").style.width = "100%";
   }
 
 
@@ -121,7 +125,7 @@ export class GraphComponent {
         type: "datetime"
       },
       yaxis: {
-        max: 70
+        max: 200
       }
     };
 

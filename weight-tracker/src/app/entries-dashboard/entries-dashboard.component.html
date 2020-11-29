@@ -5,8 +5,9 @@
         <input #entryWeight />
     </label>
     <label class ="addLabel">Date:
-        <input #entryDate />
+        <input #entryDate placeholder="ex: yyyy-mm-dd"/>
     </label>
+   <button  (click)="add(entryWeight.value, entryDate.value);">Add</button>
 </div>
 
 <ul class="entries">
@@ -14,9 +15,17 @@
       <a routerLink="/entryDetail/{{entry.entryId}}">
         <span class="badge">Weight: {{entry.weight}} <br>Date: {{entry.date}}</span> 
       </a>
-      <button class="delete" title="delete entry" >x</button>
+      <button class="delete" title="delete entry" 
+      (click)="delete(entry)">x</button>
     </li>
   </ul>
+
+<!--
+
+ <button (click) = "add(entryWeight.value, entryDate.value); entryWeight.value='' entryDate.value=''">
+      Add
+    </button>
+
 
 <div class = "grid grid-pad">   
     <a *ngFor="let entry of entries"
@@ -29,6 +38,7 @@
     </a>
 </div>
 
+-->
 
 
 

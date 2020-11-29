@@ -1,4 +1,4 @@
-<div id="chart" *ngIf="tokenService.getUser()!=null" [style.width]="graphWidth">
+<div id="chart" [ngStyle]="{'width': graphWidth}" *ngIf="tokenService.getUser()!=null">
  <h5 class = "title">GRAPH</h5>
   <apx-chart #theChart
       [series]="chartOptions.series"

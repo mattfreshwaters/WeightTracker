@@ -1,3 +1,26 @@
+<h3>Your Goals Dashboard</h3>
+<div class = "add">
+    <p class="addGoalP">Add a goal</p>
+    <label class ="addLabel">Weight:
+        <input #goalWeight />
+    </label>
+    <label class ="addLabel" >Date:  
+        <input #goalDate placeholder="yyyy-mm-dd"/>
+    </label>
+<button  (click)="add(goalWeight.value, goalDate.value);">Add</button>
+</div>
+
+<ul class="goals">
+    <li *ngFor="let goal of goals">
+      <a routerLink="/goalDetail/{{goal.goalId}}">
+        <span class="badge">Weight: {{goal.goalWeight}} <br>Date: {{goal.goalDate}}</span> 
+      </a>
+      <button class="delete" title="delete goal" 
+      (click)="delete(goal)">x</button>
+    </li>
+  </ul>
+
+  <!--
 <h3>Goals: </h3>
 <div class = "grid grid-pad">
     <a *ngFor="let goal of goals"
@@ -12,4 +35,4 @@
 
 
 
-<!--<a routerLink = "/graphEntries">Graph</a>-->
+<a routerLink = "/graphEntries">Graph</a>-->

@@ -4,9 +4,14 @@
     <div><span>Weight: </span>{{entry.weight}}</div>
     <div><span>Date: </span>{{entry.date}}</div>
 
+    <h2>Edit:</h2>
     <div>
-        <label>weight:
+        <label>Weight:
             <input [(ngModel)]="entry.weight" placeholder ="weight"/>
+        </label>
+   
+        <label>Date:
+            <input [(ngModel)]="entry.date" placeholder ="date"/>
         </label>
     </div>
     <button (click)="goBack()">Back</button>

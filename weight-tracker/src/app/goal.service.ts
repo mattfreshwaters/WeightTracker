@@ -3,7 +3,8 @@ import { Goal } from './goal';
 import { GOALS } from './mock-goals';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, tap } from 'rxjs/operators';
 
 
 
@@ -12,6 +13,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GoalService {
 
+  httpOptions = { 
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+  
   constructor(
     private messageService: MessageService,
     private client : HttpClient
@@ -27,5 +32,33 @@ export class GoalService {
     return this.client.get<Goal>(`http://localhost:8080/api/goalData/${id}`);
   }
 
+  addGoal(goalWeight: number, goalDate: Date){
+    
+  }
+
+  deleteGoal(goal: Goal | number): Observable<Goal>{
+    const id = typeof goal === 'number' ? goal : goal.goalId;
+    const url = `http://localhost:8080/api/goalData/${id}/`;
+    return this.client.delete(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted entry id=${id}`)),
+      catchError(this.handleError<any>('updatEntry'))
+    );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      console.error(error); // log to console instead
+
+      this.log(`${operation} failed: ${error.message}`);
+
+      return of(result as T);
+    };
+
+  }
+
+  private log(message: string) {
+    this.messageService.add(`HeroService: ${message}`);
+  }
 
 }

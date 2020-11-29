@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Entry } from '../entry';
 import { EntryService } from '../entry.service';
+import { TokenStorageService } from '../token-storage.service';
 
 @Component({
   selector: 'app-entries-dashboard',
@@ -12,7 +13,8 @@ export class EntriesDashboardComponent implements OnInit {
   entries: Entry[] = [];
 
   constructor(
-    private entryService: EntryService
+    private entryService: EntryService,
+    private tokenService: TokenStorageService
     ) { }
 
   ngOnInit(): void {
@@ -24,13 +26,18 @@ export class EntriesDashboardComponent implements OnInit {
     .subscribe(entries => this.entries = entries);
   }
 
-  // add(weight: number, date: Date): void {
+  add(weight: number, date: Date): void{
+    let currentUserId = this.tokenService.getUser().id;
+    if(!weight || !date) {return;}
+    // this.entryService.addEntry({weight, date, currentUserId} as Entry)
+    // .subscribe(entry => {
+    //   this.entries.push(entry);
+    // })
+  }
 
-  //   if (!weight || !date) { return; }
-  //   this.entryService.addEntry({date}, {weight})
-  //     .subscribe(entry => {
-  //       this.entries.push(entry);
-  //     });
-  // }
+  delete(entry: Entry): void{
+    this.entries = this.entries.filter(e => e !== entry);
+    this.entryService.deleteEntry(entry).subscribe();
+  }
 
 }

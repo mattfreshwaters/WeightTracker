@@ -12,9 +12,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class EntryService {
 
-  private entryURl = "http://localhost:8080/api/entryData";
+  private entryURl = "http://localhost:8080/api/entryData/";
 
-  httpOptions = {
+  httpOptions = { 
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
@@ -45,8 +45,8 @@ export class EntryService {
   editEntry(entry: Entry): Observable<any> {
     console.log(entry);
     return this.client.put<Entry>(this.entryURl, entry, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero with id =${entry.entryId}`)),
-      catchError(this.handleError<any>('updateHero')),
+      tap(_ => this.log(`updated entry with id =${entry.entryId}`)),
+      catchError(this.handleError<any>('updateEntry')),
     );
   }
 
@@ -56,8 +56,18 @@ export class EntryService {
   //     catchError(this.handleError<Hero>('addHero'))
   //   );
   // }
+  
   addEntry(entry: Entry): Observable<Entry>{
     return this.client.post<Entry>(this.entryURl, entry, this.httpOptions);
+  }
+
+  deleteEntry(entry: Entry | number): Observable<Entry>{
+    const id = typeof entry === 'number' ? entry : entry.entryId;
+    const url = `http://localhost:8080/api/entryData/${id}/`;
+    return this.client.delete(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted entry id=${id}`)),
+      catchError(this.handleError<any>('updatEntry'))
+    );
   }
 
 

@@ -9,6 +9,7 @@ import { TokenStorageService } from './token-storage.service';
 })
 export class AppComponent {
   title = 'Weight Tracker';
+  
 
   constructor(
     public tokenService: TokenStorageService,
@@ -18,6 +19,6 @@ export class AppComponent {
 
   onLogOut() : void{
     this.tokenService.signOut();
-    window.location.reload();
+    this.router.navigate(['/login']);
   }
 }

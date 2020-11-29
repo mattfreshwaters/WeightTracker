@@ -36,7 +36,9 @@ export class EntryDetailsComponent implements OnInit {
 
   save(): void{
     this.service.editEntry(this.entry)
-    .subscribe(()=> this.goBack());
+    .subscribe(entry => {
+      this.goBack();
+    });
   }
 
 }
