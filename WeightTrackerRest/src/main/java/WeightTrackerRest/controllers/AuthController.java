@@ -58,55 +58,38 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest request){
-
         //authenticate user and generate jwt token
         //generate response object
-
         Authentication authentication = authManager.authenticate(
                 new UsernamePasswordAuthenticationToken( request.getUsername(), request.getPassword() ));
-
         UserDetailImpl details = (UserDetailImpl)  authentication.getPrincipal();
-
-
         SecurityContextHolder.getContext().setAuthentication( authentication );
-
         String token = io.jsonwebtoken.Jwts.builder()
                 .setSubject( request.getUsername() )
                 .setIssuedAt( new Date())
                 .setExpiration( new Date(new Date().getTime() +  jwtExpirationMs ))
                 .signWith( SignatureAlgorithm.HS512 ,jwtSecret )
                 .compact();
-
         return ResponseEntity.ok(
                 new JwtResponse( token, details.getId(), details.getUsername(), details.getEmail(),
-
                         details.getAuthorities().stream().map( auth -> auth.getAuthority() ).collect(Collectors.toList())
-
                 ));
-
     }
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest request ){
-
         if( userRepo.existsByUsername( request.getUsername() )){
             return ResponseEntity.badRequest()
                     .body( new MessageResponse( "Error: Username is already taken" ));
         }
-
         if( userRepo.existsByEmail( request.getEmail()  )){
             return ResponseEntity.badRequest()
                     .body( new MessageResponse("Error: Email is already in use"));
         }
-
         User toAdd = new User( request.getUsername(), request.getEmail(), encoder.encode(request.getPassword()) );
-
         toAdd.getRoles().add(roleRepo.findByName(Role.RoleName.ROLE_USER).get());
         toAdd = userRepo.saveAndFlush(toAdd);
-
         return ResponseEntity.ok( new MessageResponse("User registered successfully!") );
-
     }
-
 }
 
