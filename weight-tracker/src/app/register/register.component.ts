@@ -44,16 +44,13 @@ export class RegisterComponent implements OnInit {
     } else{
       this.authService.register(this.registerData).subscribe(msgResp => {
         //todo: send over query paramter
-       this.router.navigate(['']);
+       this.router.navigate(['/login']);
      }
        ), 
        errMessage => {
          console.log(errMessage);
        }
     }
-
-
-    
   }
 
 }

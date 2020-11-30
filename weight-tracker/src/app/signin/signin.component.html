@@ -1,5 +1,5 @@
 <h1 *ngIf="tokenService.getUser()==null">Welcome! Please sign in below to access your content</h1>
-<body>
+<body *ngIf="tokenService.getUser()==null">
 
 <div id = "signInDiv">
 <form class = "signIn" *ngIf = "!isLoggedIn" name = "form" (ngSubmit) = "onSubmit()">
@@ -13,7 +13,4 @@
 <div id = "registrationDiv">
     <a id = "registerAnchor" routerLink = "/register">Register New User</a>
 </div>
-
-
-
 </body>
