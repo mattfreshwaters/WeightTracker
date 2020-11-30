@@ -9,6 +9,7 @@ import { EntryDetailsComponent } from './entry-details/entry-details.component';
 import { GoalDetailsComponent } from './goal-details/goal-details.component';
 import { GraphComponent } from './graph/graph.component';
 import { SigninComponent } from './signin/signin.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes =[
   {path: 'users', component: UsersComponent},
@@ -20,6 +21,7 @@ const routes: Routes =[
   {path: 'goalDetail/:id', component: GoalDetailsComponent},
   {path: 'graphEntries', component: GraphComponent},
   {path: 'login', component: SigninComponent},
+  {path: 'register', component: RegisterComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 

@@ -41,7 +41,7 @@ export class GraphComponent {
   ngOnInit(): void {
     this.getEntries();
     this.getGoals();
-    this.graphWidth = '100%';
+    this.setGraph();
 
   }
 
@@ -70,21 +70,7 @@ export class GraphComponent {
     })
   }
 
-  width;
-  setWidth(): void{
-    this.width = '100%';
-    document.getElementById("chart").style.width = "100%";
-  }
-
-
-  @ViewChild("chart") chart: ApexChart;
-  public chartOptions: Partial<ChartOptions>;
-
-  constructor(
-    private eService: EntryService,
-    private gService: GoalService,
-    public tokenService: TokenStorageService,
-    ) {
+  setGraph(): void{
     this.chartOptions = {
 
       series: [
@@ -124,11 +110,21 @@ export class GraphComponent {
         type: "datetime"
       },
       yaxis: {
-        max: 200
+        max: 350
       }
     };
+  }
 
-    
+
+  @ViewChild("chart") chart: ApexChart;
+  public chartOptions: Partial<ChartOptions>;
+
+  constructor(
+    private eService: EntryService,
+    private gService: GoalService,
+    public tokenService: TokenStorageService,
+    ) {
+     
   }
 
 }

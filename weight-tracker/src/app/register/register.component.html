@@ -1,1 +1,16 @@
-<p>register works!</p>
+<h1>User Registration</h1>
+<div id = "registerDiv">
+    <form id ="form"
+    *ngIf = "!isLoggedIn"
+    (ngSubmit) = "onSubmit()">
+    
+    <label class = "registerLabel"><b>Pick a username: </b></label> <input id = "username" name = "username" [(ngModel)]="registerData.username"><br/>
+    <label class = "registerLabel"><b>Enter your email: </b></label> <input id = "email" name = "email" [(ngModel)]="registerData.email"><br/>
+    <label class = "registerLabel"><b>Enter a password between 6 and 40 characters: </b></label> <input id = "password" type = "password" name = "password" [(ngModel)]="registerData.password"><br/>
+    <label class = "registerLabel"><b>Confirm password</b></label><input id = "confirmPassword" type = "password" name="confirmPassword" [(ngModel)]="confirmPassword"/><br/>
+    <button id = "registerBtn">Register</button>
+    </form>
+</div>
+<div id = "routerDiv">
+    <a id = "router" routerLink = "/login">Return to log-in page</a>
+</div>

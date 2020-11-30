@@ -4,10 +4,28 @@ h1{
     text-align: center;
     
 }
+#signInDiv{
+    padding: 15px;
+}
+
+#registrationDiv{
+    margin-top: 1%;
+    margin: auto;
+    width: 35%;
+    height: 80;
+    background-color: rgb(170, 170, 233, .4);
+    padding: 20px;
+    border-radius: 20px;    
+}
+
+#registerAnchor{
+    margin-left: 40%;
+    color: red;
+}
 
 .signIn{
-    margin-left: 35%;
-    width: 35%;
+    width: 40%;
+    margin: auto;
     height: 80;
     background-color: rgb(170, 170, 233, .4);
     padding: 20px;
@@ -26,9 +44,11 @@ h1{
 }
 
 #logInBtn{
+    height: 40px;
+    width: 80px;
     margin-top: 3%;
     margin-left: 46%;
-    color: blue;
-    background-color: rgba(86, 228, 173, 0.4);
+    color: white;
+    background-color: green;
     border-radius: 10px;
 }
