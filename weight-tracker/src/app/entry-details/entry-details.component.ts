@@ -19,7 +19,7 @@ export class EntryDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private service: EntryService
-  ) { }
+  ) {  }
 
   ngOnInit(): void {
     this.getEntry();

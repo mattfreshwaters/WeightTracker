@@ -33,4 +33,20 @@ export class GoalDetailsComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void{
+    this.service.editGoal(this.goal)
+    .subscribe(goal => {
+      this.goBack();
+    });
+  }
+  
+  /*
+  save(): void{
+    this.service.editEntry(this.entry)
+    .subscribe(entry => {
+      this.goBack();
+    });
+  }
+  */
+
 }

@@ -13,63 +13,9 @@
 <ul class="entries">
     <li *ngFor="let entry of entries">
       <a routerLink="/entryDetail/{{entry.entryId}}">
-        <span class="badge">Weight: {{entry.weight}} <br>Date: {{entry.date}}</span> 
+        <span class="badge"><b>Weight: </b>{{entry.weight}} <br><b>Date: </b>{{entry.date}}</span> 
       </a>
       <button class="delete" title="delete entry" 
       (click)="delete(entry)">x</button>
     </li>
   </ul>
-
-<!--
-
- <button (click) = "add(entryWeight.value, entryDate.value); entryWeight.value='' entryDate.value=''">
-      Add
-    </button>
-
-
-<div class = "grid grid-pad">   
-    <a *ngFor="let entry of entries"
-    routerLink ="/entryDetail/{{entry.entryId}}">
-        <div class = "module entry">
-            <h4>Entry id: {{entry.entryId}}</h4>
-            <h4>Weight: {{entry.weight}}</h4>
-            <h4>Date: {{entry.date}}</h4>
-        </div>
-    </a>
-</div>
-
--->
-
-
-
-<!--
-WORKING:
-    <div class = "grid grid-pad">
-    <a *ngFor="let entry of entries"
-    routerLink ="/entryDetail/{{entry.entryId}}">
-        <div class = "module entry">
-            <h4>Entry id: {{entry.entryId}}</h4>
-            <h4>Weight: {{entry.weight}}</h4>
-            <h4>Date: {{entry.date}}</h4>
-        </div>
-    </a>
-</div>
-
-
-     <button class="delete" title="delete hero"
-  (click)="delete(hero)">x</button>
-
-
-
-<div>
-    <label>Weight:
-      <input #entryWeight />
-    </label>
-    <label>Date:
-        <input #entryDate>
-    </label>
-    <button (click)="add(entryWeight.value, entryWeight.date); entryWeight.value='' entryDate.value=''">
-      Add Entry
-    </button>
-  </div>
--->

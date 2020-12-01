@@ -1,19 +1,20 @@
-<div *ngIf="entry">
+<div id = "entryDetail" *ngIf="entry">
     <h2>{{entry.entryId}}: Entry Details</h2>
-    <div><span>Entry: </span>{{entry.entryId}}</div>
-    <div><span>Weight: </span>{{entry.weight}}</div>
-    <div><span>Date: </span>{{entry.date}}</div>
+    <div><span class = "display"><b>Entry: </b></span>{{entry.entryId}}</div>
+    <div><span class = "display"><b>Weight: </b></span>{{entry.weight}}</div>
+    <div><span class = "display"><b>Date: </b></span>{{entry.date}}</div>
 
-    <h2>Edit:</h2>
+    <h3>Edit:</h3>
     <div>
-        <label>Weight:
-            <input [(ngModel)]="entry.weight" placeholder ="weight"/>
+        <label id = "editWeight"><b>Weight:</b>
+            <input id = "editWeightInput" [(ngModel)]="entry.weight" placeholder ="weight"/>
         </label>
-   
-        <label>Date:
-            <input [(ngModel)]="entry.date" placeholder ="date"/>
+        <br/>
+        <label id = "editDate"><b>Date:</b>
+            <input id = "editDateInput" [(ngModel)]="entry.date" placeholder ="date"/>
         </label>
     </div>
-    <button (click)="goBack()">Back</button>
-    <button (click)="save()">Save</button>
+    <br/>
+    <button id = "backBtn" (click)="goBack()">Back</button>
+    <button id= "saveBtn" (click)="save()">Save</button>
 </div>

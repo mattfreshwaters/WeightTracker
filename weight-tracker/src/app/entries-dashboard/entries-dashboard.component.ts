@@ -19,6 +19,7 @@ export class EntriesDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEntries();
+    
   }
 
   getEntries(): void{

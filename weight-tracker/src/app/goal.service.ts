@@ -34,6 +34,13 @@ export class GoalService {
     return this.client.get<Goal>(`http://localhost:8080/api/goalData/${id}`);
   }
 
+  editGoal(goal: Goal): Observable<any> {
+    return this.client.put<Goal>(this.goalURL, goal, this.httpOptions).pipe(
+      tap(_ => this.log(`updated goal with id =${goal.goalId}`)),
+      catchError(this.handleError<any>('updateGoal')),
+    );
+  }
+
 
   addGoal(goal: Goal): Observable<Goal>{
     return this.client.post<Goal>(this.goalURL, goal, this.httpOptions).pipe(

@@ -1,6 +1,6 @@
-<div id="chart" [ngStyle]="{'width': graphWidth}" *ngIf="tokenService.getUser()!=null">
+<div id="chart" *ngIf="tokenService.getUser()!=null">
  <h5 class = "title">GRAPH</h5>
-  <apx-chart #theChart
+<apx-chart #theChart
       [series]="chartOptions.series"
       [chart]="chartOptions.chart"  
       [xaxis]="chartOptions.xaxis"
@@ -8,4 +8,5 @@
       [dataLabels]="chartOptions.dataLabels"
       [grid]="chartOptions.grid"
   ></apx-chart>
+  
 </div>

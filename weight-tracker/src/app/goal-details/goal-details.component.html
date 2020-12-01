@@ -1,13 +1,19 @@
 <div *ngIf="goal">
-    <h2>{{goal.userId}} Details</h2>
+    <h2>{{goal.userId}} Goal Details</h2>
     <div><span>Goal Id: </span>{{goal.goalId}}</div>
     <div><span>Goal Weight: </span> {{goal.goalWeight}}</div>
     <div><span>Goal Date: </span> {{goal.goalDate}}</div>
 
+<h2>Edit</h2>
     <div>
-      <label>weight:
+      <label>Goal Weight:
         <input [(ngModel)]="goal.goalWeight" placeholder="weight"/>
+      </label>
+      
+      <label>Goal Date:
+        <input [(ngModel)]="goal.goalDate" placeholder="date"/>
       </label>
     </div>
     <button (click)="goBack()">go back</button>
+    <button (click)="save()">Save</button>
   </div>

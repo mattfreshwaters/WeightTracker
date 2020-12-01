@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   }
 
   constructor(
-    private tokenService: TokenStorageService,
+    public tokenService: TokenStorageService,
     private authService: AuthService,
     private router: Router) { }
 

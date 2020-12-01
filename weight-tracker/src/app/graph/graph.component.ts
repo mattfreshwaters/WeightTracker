@@ -28,36 +28,35 @@ export type ChartOptions = {
   grid: ApexGrid;
 };
 
+declare global{
+  interface Window{
+    Apex: any;
+  }
+}
+
 @Component({
   selector: 'app-graph',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.css']
 })
 export class GraphComponent {
-
+ 
   @ViewChild("theChart") scatterChart: ApexChart;
 
-  graphWidth;
-  ngOnInit(): void {
-    this.getEntries();
-    this.getGoals();
-    this.setGraph();
-
-  }
-
   entries: Entry[] = [];
-  getEntries(): void{
+  getEntries(): any{
     this.eService.getEntries()
     .subscribe(entries => {
+      // this is where we get the data
       this.entries = entries;
       this.chartOptions.series[0].data = entries.map( e => {return {
         x: new Date(e.date).getTime(),
         y: e.weight
       };});
-      
     })
   }
 
+  goalsArray = [];
   goals: Goal[] = [];
   getGoals(): void{
     this.gService.getGoals()
@@ -70,49 +69,9 @@ export class GraphComponent {
     })
   }
 
-  setGraph(): void{
-    this.chartOptions = {
 
-      series: [
-        {
-          name: "Weight",
-          data: []
-          
-        },
-        {
-          name: "Goal Weight",
-          data: []
-        }
-      ],
-      chart: {
-        height: 350,
-        type: "scatter",
-        zoom: {
-          type: "xy"
-        }
-      },
-      dataLabels: {
-        enabled: false
-      },
-      grid: {
-        xaxis: {
-          lines: {
-            show: true
-          }
-        },
-        yaxis: {
-          lines: {
-            show: true
-          }
-        }
-      },
-      xaxis: {
-        type: "datetime"
-      },
-      yaxis: {
-        max: 350
-      }
-    };
+  setGraph(): void{
+      
   }
 
 
@@ -124,7 +83,55 @@ export class GraphComponent {
     private gService: GoalService,
     public tokenService: TokenStorageService,
     ) {
-     
+      this.chartOptions = {
+        series: [
+          {
+            name: "Weight",
+            data: []
+            
+          },
+          {
+            name: "Goal Weight",
+            data: []
+          }
+        ],
+        chart: {
+          height: 350,
+          type: "scatter",
+          zoom: {
+            type: "xy"
+          }, 
+        },
+        dataLabels: {
+          enabled: false
+        },
+        grid: {
+          xaxis: {
+            lines: {
+              show: true
+            }
+          },
+          yaxis: {
+            lines: {
+              show: true
+            }
+          }
+        },
+        xaxis: {
+          type: "datetime"
+        },
+        yaxis: {
+          max: 350
+        }
+      };
+     }
+
+  ngOnInit(): void {
+    
+    //this.setGraph();
+    this.getEntries();
+    this.getGoals();
+
   }
 
 }

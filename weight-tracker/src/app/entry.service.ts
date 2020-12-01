@@ -33,17 +33,7 @@ export class EntryService {
     return this.client.get<Entry>(`http://localhost:8080/api/entryData/${id}`);
   }
 
-  /*
-  updateHero(hero: Hero): Observable<any> {
-      return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.id}`)),
-      catchError(this.handleError<any>('updateHero'))
-    );
-  }
-  */
-
   editEntry(entry: Entry): Observable<any> {
-    console.log(entry);
     return this.client.put<Entry>(this.entryURl, entry, this.httpOptions).pipe(
       tap(_ => this.log(`updated entry with id =${entry.entryId}`)),
       catchError(this.handleError<any>('updateEntry')),

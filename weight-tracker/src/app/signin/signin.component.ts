@@ -35,7 +35,7 @@ export class SigninComponent implements OnInit {
           this.tokenService.saveToken(loginData.token);
           this.tokenService.saveUser(loginData);
           this.isLoggedIn = true;
-          this.router.navigate(['']);
+          this.router.navigate(['/entriesDashboard']);
         }, 
         errMessage => {
           console.log(errMessage);

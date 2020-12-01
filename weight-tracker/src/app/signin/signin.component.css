@@ -1,4 +1,6 @@
-
+body{
+    border-radius: 30px;
+}
 h1{
     color: lightskyblue;
     text-align: center;
@@ -20,7 +22,7 @@ h1{
 
 #registerAnchor{
     margin-left: 40%;
-    color: red;
+    color: rgb(80, 206, 55);
 }
 
 .signIn{
