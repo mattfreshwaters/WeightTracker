@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Information from the Developer
+
+"Weight Tracker" was created as my first individual full-stack project.  Some of the technologies I used are described below:
+
+- SpringBoot + Spring Security to create a Maven project, creating my REST API
+- Angular to consume the REST API and set up the front-end, with several components throughout
+- "Apex Charts" to create the graph component
+- PostgresSQL to store all of my data & schemas
